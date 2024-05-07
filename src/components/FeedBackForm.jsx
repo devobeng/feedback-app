@@ -24,20 +24,16 @@ const FeedBackForm = () => {
 	const handleTextChange = (e) => {
 		if (text === '') {
 			setBtnDisabled(true);
-			setMessage(null);
-		} else if (text !== '' && text.trim().length <= 10) {
-			setBtnDisabled(true);
 			setMessage('Text must be at least 10 characters');
-		} else {
+		} else if (text !== '') {
 			setBtnDisabled(false);
-			setMessage(null);
 		}
 		setText(e.target.value);
 	};
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		if (text.trim().length > 10) {
+		if (text !== '') {
 			const newFeedback = {
 				text,
 				rating,
